@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -39,8 +39,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //新增的后台路由
-        $this->mapAdminRoutes();
+        //
     }
 
     /**
@@ -70,16 +69,5 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
-    }
-
-    /**
-     *
-     */
-    protected function mapAdminRoutes()
-    {
-        Route::prefix('admin')
-            //    ->middleware('api')   //避免篇幅过长，中间件的引入这里就忽略了
-            ->namespace($this->namespace)
-            ->group(base_path('routes/admin.php'));
     }
 }
